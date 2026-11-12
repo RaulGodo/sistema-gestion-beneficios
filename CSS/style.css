@@ -1,0 +1,404 @@
+/* =========================================================
+   SISTEMA DE GESTIÓN DE BENEFICIOS
+   Sistema de diseño base
+   ========================================================= */
+
+:root {
+    /* Paleta principal */
+    --color-primary: #2c6e63;
+    --color-primary-dark: #1f4f47;
+    --color-primary-light: #e6f0ee;
+
+    --color-accent: #f2a541;
+    --color-accent-dark: #d98f2c;
+
+    /* Fondos y superficies */
+    --color-bg: #f4f6f7;
+    --color-surface: #ffffff;
+
+    /* Texto */
+    --color-text: #263238;
+    --color-text-muted: #6c757d;
+
+    /* Bordes y sombras */
+    --color-border: #e3e7e8;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 2px 8px rgba(15, 40, 35, 0.06);
+    --shadow-md: 0 8px 24px rgba(15, 40, 35, 0.10);
+
+    /* Tipografía */
+    --font-heading: "Poppins", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
+/* =========================
+BASE
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > section {
+    flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-primary);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* =========================
+ENCABEZADO DEL SISTEMA
+========================= */
+
+.encabezado-sistema {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 30px;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-sistema {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.titulo-sistema h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.titulo-sistema p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar-sistema {
+    background-color: var(--color-primary-dark);
+    padding: 10px 25px;
+}
+
+.navbar-sistema .nav-link {
+    color: #ffffff !important;
+    padding: 10px 15px !important;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.navbar-sistema .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================
+USUARIO
+========================= */
+
+.usuario-navbar {
+    color: #ffffff;
+    padding: 8px 15px;
+    font-weight: 500;
+}
+
+/* =========================
+BOTÓN SALIR
+========================= */
+
+.btn-salir {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+    padding: 7px 15px;
+    border-radius: var(--radius-sm);
+    transition: 0.2s ease;
+}
+
+.btn-salir:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #ffffff;
+}
+
+/* =========================
+BOTONES
+========================= */
+
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* =========================
+ENCABEZADOS DE PÁGINA
+========================= */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-header i {
+    display: block;
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.page-header h2 {
+    margin-bottom: 0;
+}
+
+.page-header p {
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+/* =========================
+TARJETAS GENERALES
+========================= */
+
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.container > .card,
+.container-fluid > .card {
+    padding: 10px;
+}
+
+/* =========================
+TARJETAS DE PANEL (Dashboards)
+========================= */
+
+.panel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    padding: 32px 20px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    border-top: 4px solid var(--panel-color, var(--color-primary));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.panel-card i {
+    font-size: 2rem;
+    color: var(--panel-color, var(--color-primary));
+}
+
+.panel-card span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.panel-card.c-1 { --panel-color: #2c6e63; }
+.panel-card.c-2 { --panel-color: #3f8efc; }
+.panel-card.c-3 { --panel-color: #f2a541; }
+.panel-card.c-4 { --panel-color: #17a2b8; }
+.panel-card.c-5 { --panel-color: #8a63d2; }
+.panel-card.c-6 { --panel-color: #d64550; }
+
+/* =========================
+TABLAS
+========================= */
+
+.table {
+    background-color: var(--color-surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: var(--color-primary);
+}
+
+.table thead th {
+    color: #ffffff;
+    font-weight: 600;
+    border-bottom: none;
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* =========================
+BADGES DE ESTADO
+========================= */
+
+.badge-estado {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-activo {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+.badge-inactivo {
+    background-color: #f1f1f1;
+    color: var(--color-text-muted);
+}
+
+.badge-pendiente {
+    background-color: #fff3cd;
+    color: #8a6100;
+}
+
+/* =========================
+FORMULARIOS
+========================= */
+
+.form-label {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-control,
+.form-select {
+    border-radius: var(--radius-sm);
+    border-color: var(--color-border);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem var(--color-primary-light);
+}
+
+/* =========================
+ALERTAS
+========================= */
+
+.alert {
+    border: none;
+    border-radius: var(--radius-sm);
+}
+
+/* =========================
+PIE DE PÁGINA
+========================= */
+
+footer .pie {
+    text-align: center;
+    padding: 20px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .encabezado-sistema {
+        padding: 15px;
+    }
+
+    .titulo-sistema h1 {
+        font-size: 18px;
+    }
+
+    .titulo-sistema p {
+        font-size: 12px;
+    }
+
+    .logo-sistema {
+        width: 55px;
+        height: 55px;
+    }
+
+    .usuario-navbar {
+        margin: 10px 0;
+    }
+
+    .btn-salir {
+        margin-top: 5px;
+    }
+
+    .panel-card {
+        padding: 24px 15px;
+    }
+
+}
